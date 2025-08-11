@@ -20,7 +20,7 @@
   "scripts": {
     "build": "rm -rf lib/* && tsc",
     "serve": "node lib/index.js",
-    "start": "nodemon",
+    "dev": "nodemon",
     "test": "exit 0",
     "format:check": "prettier --check .",
     "prepublishOnly": "npm run build"

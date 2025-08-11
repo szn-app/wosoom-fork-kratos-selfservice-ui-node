@@ -1,4 +1,4 @@
-FROM node:18.12.1-alpine
+FROM node:18.12.1-alpine as release
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -26,3 +26,16 @@ ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["npm run serve"]
 
 EXPOSE 3000
+
+# ---
+
+FROM node:lts as debug
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+RUN npm install
+
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["npm run dev"]
