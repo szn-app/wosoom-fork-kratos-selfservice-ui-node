@@ -10,6 +10,7 @@ ARG A
 ARG W
 ARG LINK=no
 WORKDIR /usr/src/app
+LABEL org.opencontainers.image.source=https://github.com/szn-app/wosoom
 
 RUN adduser -S ory -D -u 10000 -s /bin/nologin
 RUN mkdir -p /usr/src/app
